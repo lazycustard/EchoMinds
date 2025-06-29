@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -69,10 +70,19 @@ export const Chat = () => {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesEndRef.current && chatContainerRef.current) {
+      const container = chatContainerRef.current;
+      const isScrolledToBottom = container.scrollHeight - container.clientHeight <= container.scrollTop + 1;
+      
+      // Only auto-scroll if user is already near the bottom
+      if (isScrolledToBottom || messages.length <= 2) {
+        messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   useEffect(() => {
@@ -163,7 +173,10 @@ export const Chat = () => {
         </p>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="h-80 overflow-y-auto p-4 bg-blue-50/50 rounded-lg border">
+        <div 
+          ref={chatContainerRef}
+          className="h-80 overflow-y-auto p-4 bg-blue-50/50 rounded-lg border scroll-smooth"
+        >
           {messages.map((message) => (
             <div
               key={message.id}
