@@ -1,10 +1,9 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
-import { Comments, Book } from 'lucide-react';
+import { MessageCircle, Book } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -155,7 +154,7 @@ export const Chat = () => {
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-3 text-xl font-semibold text-gray-800">
           <div className="p-2 rounded-full bg-teal-100">
-            <Comments className="h-6 w-6 text-teal-600" />
+            <MessageCircle className="h-6 w-6 text-teal-600" />
           </div>
           Talk to Echo
         </CardTitle>

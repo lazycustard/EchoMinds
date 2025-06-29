@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
-import { Cloud, Smile, Meh, Flushed, SadTear, Tired } from 'lucide-react';
+import { Cloud, Smile, Meh, Frown, Zap, AlertCircle } from 'lucide-react';
 
 interface EmotionData {
   name: string;
@@ -26,19 +25,19 @@ const emotionData: Record<string, EmotionData> = {
   },
   anxious: {
     name: "Anxious",
-    icon: <Flushed className="h-8 w-8" />,
+    icon: <AlertCircle className="h-8 w-8" />,
     gradient: "from-orange-400 to-orange-300",
     height: 50
   },
   sad: {
     name: "Sad",
-    icon: <SadTear className="h-8 w-8" />,
+    icon: <Frown className="h-8 w-8" />,
     gradient: "from-purple-400 to-purple-300",
     height: 40
   },
   tired: {
     name: "Tired",
-    icon: <Tired className="h-8 w-8" />,
+    icon: <Zap className="h-8 w-8" />,
     gradient: "from-indigo-400 to-pink-400",
     height: 60
   }
