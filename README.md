@@ -27,6 +27,13 @@ EchoMind is a compassionate web application designed to support mental wellness 
 - Randomly generated prompts to inspire reflection
 - Character counter and entry management
 
+## 🌐 Omindimension Integration
+
+The idea for EchoMind was deeply influenced by the **[Omindimension](https://www.omnidim.io/refer/vibe-a-thon)** emotion widget, which provided a beautifully intuitive and scientifically backed way to help users reflect on and log their feelings. Its circular model for emotions inspired our visual feedback and emotion tracking UI. The accessibility and simplicity of the Omindimension widget helped us shape EchoMind into a welcoming space for all users—regardless of age or tech-savviness.
+
+---
+
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 18 with TypeScript
